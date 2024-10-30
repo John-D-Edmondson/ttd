@@ -36,36 +36,38 @@ class BankAccountTest {
     // normal withdrawal balance reduces correctly
     // to large withdrawal no change in balance
     // incorrect values (neg, null)
-//    void withdrawalStringValue(){
-//        BankAccount Ba = new BankAccount();
-//    }
-//    void withdrawalMoneyAvailable(){
-//        BankAccount Ba = new BankAccount();
-//        double withdrawlAmount = 100;
-//        Ba.setBalance(150);
-//        int result = Ba.witdraw(withdrawlAmount);
-//        assertEquals(Ba.getBalance == 50);
-//        assertEquals(result  == 1);
-//    }
-//
-//    void withdrawalNoMoneyAvailable(){
-//        BankAccount Ba = new BankAccount();
-//        Ba.setBalance(50);
-//        double withdrawalAmount = 100;
-//        int result = Ba.withDraw(withdrawalAmount);
-//        assertEquals(Ba.getBalance() == 50);
-//        assertEquals(result == -1);
-//    }
-//
-//    void withdrawalTestNegativeValue(){
-//        BankAccount Ba = new BankAccount();
-//        double negValue = -1;
-//        assertThrows(IllegalArgumentException.class, () -> Ba.withdraw(negValue));
-//
-//    }
-//    void withdrawalTestNullValue(){
-//        BankAccount Ba = new BankAccount();
-//        assertThrows(IllegalArgumentException.class, () -> Ba.withdraw(null));
-//    }
+    void withdrawalStringValue(){
+        BankAccount Ba = new BankAccount();
+    }
+    @Test
+    void withdrawalMoneyAvailable(){
+        BankAccount Ba = new BankAccount();
+        double withdrawlAmount = 100;
+        Ba.setBalance(150);
+        int result = Ba.withdraw(withdrawlAmount);
+        assertEquals(Ba.getBalance(), 50);
+        assertEquals(result, 1);
+    }
+    @Test
+    void withdrawalNoMoneyAvailable(){
+        BankAccount Ba = new BankAccount();
+        Ba.setBalance(50);
+        double withdrawalAmount = 100;
+        int result = Ba.withdraw(withdrawalAmount);
+        assertEquals(Ba.getBalance(), 50);
+        assertEquals(result, -1);
+    }
+
+    @Test
+    void withdrawalTestNegativeValue(){
+        BankAccount Ba = new BankAccount();
+        double negValue = -1;
+        assertThrows(IllegalArgumentException.class, () -> Ba.withdraw(negValue));
+
+    }
+    void withdrawalTestNullValue(){
+        BankAccount Ba = new BankAccount();
+        assertThrows(IllegalArgumentException.class, () -> Ba.withdraw(null));
+    }
 
 }

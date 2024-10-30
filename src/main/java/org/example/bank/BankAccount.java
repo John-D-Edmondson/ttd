@@ -26,6 +26,21 @@ public class BankAccount {
         }
     }
 
+    public int withdraw(Double withdrawalAmount){
+        if (withdrawalAmount == null){
+            throw new NullPointerException("withdrawal cannot be null");
+        }
+        if (withdrawalAmount < 0){
+            throw new IllegalArgumentException("withdrawal cannot be negative");
+        }
+        if (withdrawalAmount > balance){
+            return -1;
+        }
+
+        balance -= withdrawalAmount;
+        return 1;
+    }
+
     public String getName() {
         return name;
     }
